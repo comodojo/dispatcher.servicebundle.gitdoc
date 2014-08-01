@@ -1,0 +1,46 @@
+{
+    "name": "comodojo/dispatcher.servicebundle.gitdoc",
+    "description": "Services used together with dispatcher.plugin.gitdoc to generate documentation with comodojo/dispatcher.framework",
+    "license": "GPL-3.0+",
+    "type": "dispatcher-service-bundle",
+    "keywords": [
+       "comodojo",
+        "dispatcher",
+        "plugin",
+        "github",
+        "documentation",
+        "docs",
+        "git"
+    ],
+    "homepage": "http://dispatcher.comodojo.org",
+     "support": {
+        "issues": "https://github.com/comodojo/dispatcher.servicebundle.gitdoc/issues"
+    },
+    "authors": [
+        {
+            "name": "Marco Giovinazzi",
+            "email": "info@comodojo.org"
+        }
+    ],
+    "extra": {
+        "comodojo-service-route": [
+            {
+                "service": "receiver",
+                "type": "ROUTE",
+                "target": "receiver.php"
+            }
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+             "Comodojo\\Gitdoc\\": "src"
+         }
+    },
+    "require": {
+        "comodojo/dispatcher.template.bootstrap": "dev-master",
+        "comodojo/dispatcher.plugin.gitdoc": "dev-master",
+        "comodojo/comodojo/zip": "dev-master",
+        "comodojo/httprequest": "dev-master",
+        "erusev/parsedown": "1.0.1"
+    }
+}
