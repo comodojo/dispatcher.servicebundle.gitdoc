@@ -40,7 +40,7 @@
     "require": {
         "comodojo/dispatcher.template.bootstrap": "1.0.*",
         "comodojo/dispatcher.plugin.gitdoc": "dev-master",
-        "comodojo/comodojo/zip": "1.0.*",
+        "comodojo/zip": "1.0.*",
         "comodojo/httprequest": "1.0.*",
         "erusev/parsedown": "1.0.*",
         "dompdf/dompdf": "0.6.*"
