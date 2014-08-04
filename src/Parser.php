@@ -24,7 +24,7 @@ class Parser {
 
 			array_push($this->index, $this->processMarkdownHeaders($name, $file));
 
-			$this->final_markdown .= "\n# ".$name."\n".$file;
+			$this->final_markdown .= "\n# ".$name."\n".$file."\r\n";
 
     	}
 
@@ -34,7 +34,11 @@ class Parser {
 
 	final public function toHtml() {
 
-		return \Parsedown::instance()->text($this->final_markdown);
+		$html = \Parsedown::instance()->text($this->final_markdown);
+
+		$processed_html = $this->processHtml($html);
+
+		return $processed_html;
 
 	}
 
@@ -50,12 +54,28 @@ class Parser {
 
 	}
 
+	final public function toPdf() {
+
+		define('DOMPDF_ENABLE_AUTOLOAD', false);
+
+		require_once DISPATCHER_REAL_PATH.'vendor/dompdf/dompdf/dompdf_config.inc.php';
+
+		$dompdf = new \DOMPDF();
+
+		$dompdf->load_html($this->toHtml());
+
+		$dompdf->render();
+
+		return $dompdf->output();
+
+	}
+
 	private function processMarkdownHeaders($name, $text) {
 
 		$return = array(
-			"id"	=>	$this->titleToId($name),
-			"name"	=>	$name,
-			"childs"=>	array()
+			"ref"		=>	$this->titleToId($name),
+			"name"		=>	$name,
+			"paragraphs"=>	array()
 		);
 
 		$matches = preg_match_all('/(#+)(.*)/', $text, $out, PREG_SET_ORDER);
@@ -64,7 +84,11 @@ class Parser {
 			
 			list($line, $dashes, $chars) = $match;
 
-			if ( count($dashes) == 2 ) array_push( $return["childs"], array( "id" => $this->titleToId($chars), "name" => trim($chars) ) );
+			if ( $dashes == '##' ) {
+
+				$return["paragraphs"][trim($chars)] = $this->titleToId($chars);
+
+			}
 
 		}
 
@@ -86,7 +110,33 @@ class Parser {
 		
 		$str = strtolower( trim($str, '-') );
 		
-		return $str;
+		return "#".$str;
+
+	}
+
+	private function processHtml($html) {
+
+		$patterns = array();
+
+		$replaces = array();
+
+		foreach ($this->index as $index) {
+			
+			array_push($patterns, '<h1>'.$index['name'].'</h1>');
+
+			array_push($replaces, '<div class="block-divider" id="'.substr($index['ref'], 1).'"></div>'."\n".'<h1>'.$index['name'].'</h1>');
+
+			foreach ($index["paragraphs"] as $key => $value) {
+				
+				array_push($patterns, '<h2>'.$key.'</h2>');
+
+				array_push($replaces, '<div class="block-divider" id="'.substr($value, 1).'"></div>'."\n".'<h2>'.$key.'</h2>');
+
+			}
+
+		}
+
+		return str_replace($patterns, $replaces, $html);
 
 	}
 

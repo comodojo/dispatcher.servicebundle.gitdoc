@@ -10,7 +10,8 @@
         "github",
         "documentation",
         "docs",
-        "git"
+        "git",
+        "github"
     ],
     "homepage": "http://dispatcher.comodojo.org",
      "support": {
@@ -37,10 +38,11 @@
          }
     },
     "require": {
-        "comodojo/dispatcher.template.bootstrap": "dev-master",
+        "comodojo/dispatcher.template.bootstrap": "1.0.*",
         "comodojo/dispatcher.plugin.gitdoc": "dev-master",
-        "comodojo/comodojo/zip": "dev-master",
-        "comodojo/httprequest": "dev-master",
-        "erusev/parsedown": "1.0.1"
+        "comodojo/comodojo/zip": "1.0.*",
+        "comodojo/httprequest": "1.0.*",
+        "erusev/parsedown": "1.0.*",
+        "dompdf/dompdf": "0.6.*"
     }
 }

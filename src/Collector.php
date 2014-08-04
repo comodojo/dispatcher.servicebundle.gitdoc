@@ -271,8 +271,7 @@ class Collector {
 				"sitename" => null,
 				"description" => null,
 				"showFooter" => null,
-				"footerText" => null,
-				"showForkMessage" => null,
+				"showHeader" => null,
 				"links" => null,
 				"projects" => array(
 					$this->project => array(
@@ -301,8 +300,7 @@ class Collector {
 		$configuration["sitename"] = isset($gitdocConfiguration["sitename"]) ? $gitdocConfiguration["sitename"] : "gitdoc";
 		$configuration["description"] = isset($gitdocConfiguration["description"]) ? $gitdocConfiguration["description"] : "";
 		$configuration["showFooter"] = isset($gitdocConfiguration["showFooter"]) ? filter_var($gitdocConfiguration["showFooter"], FILTER_VALIDATE_BOOLEAN) : false;
-		$configuration["footerText"] = isset($gitdocConfiguration["footerText"]) ? $gitdocConfiguration["footerText"] : "";
-		$configuration["showForkMessage"] = isset($gitdocConfiguration["showForkMessage"]) ? filter_var($gitdocConfiguration["showForkMessage"], FILTER_VALIDATE_BOOLEAN) : false;
+		$configuration["showHeader"] = isset($gitdocConfiguration["showHeader"]) ? filter_var($gitdocConfiguration["showHeader"], FILTER_VALIDATE_BOOLEAN) : false;
 		$configuration["links"] = isset($gitdocConfiguration["links"]) ? $gitdocConfiguration["links"] : array();
 
 		return $configuration;

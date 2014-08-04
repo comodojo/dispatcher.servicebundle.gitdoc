@@ -1,0 +1,90 @@
+/* sidebar */
+.sidebar {
+    padding-left: 30px;
+}
+
+/* all links */
+.sidebar .nav>li>a {
+    color: #999;
+    padding: 4px 20px;
+    font-size: 13px;
+    font-weight: 400;
+    border-left: 2px solid transparent;
+}
+
+/* nested links */
+.sidebar .nav .nav>li>a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+}
+
+.sidebar .nav>.active>a {  color: #31708f; }
+
+/* active & hover links */
+.sidebar .nav>.active>a, 
+.sidebar .nav>li>a:hover, 
+.sidebar .nav>li>a:focus {
+    color: #31708f;                 
+    text-decoration: none;          
+    background-color: transparent;  
+    border-left: 2px solid #31708f;
+}
+
+/* all active links */
+.sidebar .nav>.active>a, 
+.sidebar .nav>.active:hover>a,
+.sidebar .nav>.active:focus>a {
+    font-weight: 700;
+}
+/* nested active links */
+.sidebar .nav .nav>.active>a, 
+.sidebar .nav .nav>.active:hover>a,
+.sidebar .nav .nav>.active:focus>a {
+    font-weight: 500;
+}
+
+/* hide all (inactive) nested list */
+.sidebar .nav ul.nav {
+    display: none;           
+}
+/* show active nested list */
+.sidebar .nav>.active>ul.nav {
+    display: block;           
+}
+
+.block-divider {
+    margin-bottom: 70px;
+}
+
+.glyphicon-lg {
+    font-size:3em;
+}
+
+.header-box {
+    border-right:5px solid #E6E6E6;
+    margin-bottom:25px;
+    border-color:#357EBD
+}
+
+.header-box h4 {
+    margin-top:5px;
+}
+
+.header-box .square{ 
+    width:100px;
+    min-height:50px;
+    margin-right:22px;
+    text-align:center!important;
+    background-color:#E6E6E6;
+    padding:20px 0;
+    background-color:#428BCA;
+    color:#FFF;
+}
+
+@media screen and (max-width: 500px){
+    .sidebar {
+        display:none
+    }
+}

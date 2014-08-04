@@ -82,6 +82,8 @@ class receiver extends Service {
 
                 $zip->setMask(0777)->open($collector->getDownloadPath())->extract($collector->getExtractPath());
 
+                unlink($collector->getDownloadPath());
+
             }
             
             $collector->updateConfiguration();
