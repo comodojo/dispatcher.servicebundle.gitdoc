@@ -24,6 +24,8 @@ class receiver extends Service {
 
         $zip = new Zip();
 
+        $cache = $this->getCacher();
+
         // Acquire attributes, parameters and logger
 
         $attributes = $this->getAttributes();
@@ -87,6 +89,8 @@ class receiver extends Service {
             }
             
             $collector->updateConfiguration();
+
+            $cache->purge();
 
         } catch (HttpException $he) {
 
