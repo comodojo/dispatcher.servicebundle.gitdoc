@@ -366,6 +366,15 @@ class exhibitor extends Service {
             </div>
         ';
         
+        if ( $version == "live" ) {
+
+                $header .= "<div class='alert-message alert-message-warning'>
+                        <h4>Warning: live docs here!</h4>
+                        <p>This page contains a work in progress version of project documentation. If available, select a release version from upper menu.</p>
+                </div>";
+
+        }
+
         return $header;
 
     }
