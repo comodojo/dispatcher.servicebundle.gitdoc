@@ -39,13 +39,13 @@ Build and presentation processes are triggered via GitHub push/tag events; on ea
             ]
         }
 
-* showHeader and showFooter are boolean values: if true, header and footer information sections will be displayed
-* each link in links object will add an external href to the top/right menu item
-* each project in project object will declare a new documentation section:
-    * name: docsite name
-    * description
-    * docId (see next section to understand how to use it)
-    * hash (optional): secret hook hash
+    * showHeader and showFooter are boolean values: if true, header and footer information sections will be displayed
+    * each link in links object will add an external href to the top/right menu item
+    * each project in project object will declare a new documentation section:
+        * name: docsite name
+        * description
+        * docId (see next section to understand how to use it)
+        * hash (optional): secret hook hash
 
 5. Setup a WebHook on GitHub repository:
 
