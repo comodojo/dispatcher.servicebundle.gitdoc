@@ -16,8 +16,8 @@ Build and presentation processes are triggered via GitHub push/tag events; on ea
 
 3. Ensure that `downloads` and `docs` folders inside dispatcher project are readable/writeable by apache user and add following two lines to `dispatcher-config.php`:
 
-    define('DISPATCHER_DOWNLOAD_FOLDER', DISPATCHER_REAL_PATH."downloads/");
-    define('DISPATCHER_DOC_FOLDER', DISPATCHER_REAL_PATH."docs/");
+        define('DISPATCHER_DOWNLOAD_FOLDER', DISPATCHER_REAL_PATH."downloads/");
+        define('DISPATCHER_DOC_FOLDER', DISPATCHER_REAL_PATH."docs/");
 
 4. Create `gitdoc.json` file under `config` directory; file content should follow this schema:
 
