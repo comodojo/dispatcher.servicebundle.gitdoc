@@ -42,7 +42,7 @@
         "comodojo/dispatcher.plugin.gitdoc": "dev-master",
         "comodojo/zip": "1.0.*",
         "comodojo/httprequest": "1.0.*",
-        "erusev/parsedown": "1.0.*",
+        "erusev/parsedown": "1.1.*",
         "dompdf/dompdf": "0.6.*"
     }
 }

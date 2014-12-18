@@ -264,7 +264,7 @@ class exhibitor extends Service {
 
     private function toPrintable($parser, $configuration, $project, $version, $project_data) {
 
-        $template = new TemplateBootstrap("basic", "default");
+        $template = new TemplateBootstrap("basic", "lumen");
 
         // setup template
 
